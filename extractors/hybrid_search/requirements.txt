@@ -1,0 +1,5 @@
+zep-python>0.30
+langchain
+openai
+python-dotenv
+wikipedia
