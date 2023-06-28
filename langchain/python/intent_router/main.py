@@ -95,6 +95,8 @@ def main():
         )
     )
 
+    print(zep_chat_history.zep_messages)
+
 
 if __name__ == "__main__":
     main()
