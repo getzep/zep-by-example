@@ -71,15 +71,15 @@ async def openai_chroma_test(
             memory_key="retriever_results",
             input_key="input",
             exclude_input_keys=["chat_history"],
-            tags=[run_tag],
+            tags=[run_tag, "vs_retriever_memory"],
         )
 
         chat_memory = ConversationSummaryBufferMemory(
-            max_token_limit=400,
+            max_token_limit=350,
             memory_key="chat_history",
             llm=llm,
             input_key="input",
-            tags=[run_tag],
+            tags=[run_tag, "summary_memory"],
         )
 
         chat_memory = init_summary_memory(chat_memory)
@@ -126,14 +126,18 @@ async def zep_test(
             temperature=TEMPERATURE,
         )
 
-        retriever = ZepRetriever(url=ZEP_API_URL, session_id=zep_session_id, top_k=5)
+        retriever = ZepRetriever(
+            url=ZEP_API_URL,
+            session_id=zep_session_id,
+            top_k=5,
+            tags=[run_tag, "zep_retriever"],
+        )
 
         chat_memory = ZepMemory(
             url=ZEP_API_URL,
             session_id=zep_session_id,
             memory_key="chat_history",
             input_key="input",
-            # tags=[run_tag],
         )
 
         chain = LLMChain(
@@ -161,9 +165,6 @@ async def zep_test(
                     )
                 )
                 time.sleep(0.2)
-
-        # Cleanup
-        retriever.zep_client.delete_memory(session_id=zep_session_id)
 
 
 def docs_to_messages_str(docs: list[Document]) -> str:
@@ -199,7 +200,8 @@ def init_zep(session_id: str):
     zep = ZepClient(base_url=ZEP_API_URL)
     zep.add_memory(session_id=session_id, memory_messages=memory)
 
-    time.sleep(1)
+    # Let the index operation on batch complete
+    time.sleep(10)
 
 
 def init_chroma(run_tag: str) -> Chroma:
@@ -213,7 +215,8 @@ def init_chroma(run_tag: str) -> Chroma:
         embedding=OpenAIEmbeddings(),
     )
 
-    time.sleep(1)
+    # Let the index operation on batch complete
+    time.sleep(10)
 
     return chromadb
 
@@ -223,7 +226,7 @@ async def test_suite():
 
     await openai_chroma_test("openai_chroma", runs=runs)
 
-    await zep_test("zep", runs=runs)
+    # await zep_test("zep", runs=runs)
 
 
 def main():
