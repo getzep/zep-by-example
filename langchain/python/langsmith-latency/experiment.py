@@ -71,7 +71,6 @@ async def openai_chroma_test(
             memory_key="retriever_results",
             input_key="input",
             exclude_input_keys=["chat_history"],
-            tags=[run_tag, "vs_retriever_memory"],
         )
 
         chat_memory = ConversationSummaryBufferMemory(
@@ -79,7 +78,6 @@ async def openai_chroma_test(
             memory_key="chat_history",
             llm=llm,
             input_key="input",
-            tags=[run_tag, "summary_memory"],
         )
 
         chat_memory = init_summary_memory(chat_memory)
@@ -226,7 +224,7 @@ async def test_suite():
 
     await openai_chroma_test("openai_chroma", runs=runs)
 
-    # await zep_test("zep", runs=runs)
+    await zep_test("zep", runs=runs)
 
 
 def main():
