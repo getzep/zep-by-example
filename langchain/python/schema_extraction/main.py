@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Optional
+
 from dotenv import load_dotenv
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
@@ -9,48 +11,52 @@ from schema_extractor_memory import SchemaExtractorMemory, ExtractorSchema
 
 
 class Address(ExtractorSchema):
-    street: str | None = Field(description="the street address", max_length=100)
-    city: str | None = Field(description="the city", max_length=100)
-    state: str | None = Field(description="the state", max_length=100)
-    zip: str | None = Field(
+    street: Optional[str] = Field(description="the street address", max_length=100)
+    city: Optional[str] = Field(description="the city", max_length=100)
+    state: Optional[str] = Field(description="the state", max_length=100)
+    zip: Optional[str] = Field(
         description="the zip code",
         max_length=20,
     )
 
 
 class Person(ExtractorSchema):
-    first_name: str | None = Field(description="the human's first name", max_length=100)
-    last_name: str | None = Field(description="the human's last name", max_length=100)
-    email: str | None = Field(
+    first_name: Optional[str] = Field(
+        description="the human's first name", max_length=100
+    )
+    last_name: Optional[str] = Field(
+        description="the human's last name", max_length=100
+    )
+    email: Optional[str] = Field(
         description="the human's email address",
         max_length=100,
     )
-    phone: str | None = Field(description="the human's phone number", max_length=20)
+    phone: Optional[str] = Field(description="the human's phone number", max_length=20)
 
 
 class OrderItem(ExtractorSchema):
-    size: str | None = Field(
+    size: Optional[str] = Field(
         description="the size of the shoe",
     )
-    color: str | None = Field(
+    color: Optional[str] = Field(
         description="the color of the shoe",
     )
-    brand: str | None = Field(
+    brand: Optional[str] = Field(
         description="the brand of the shoe",
     )
-    quantity: str | None = Field(
+    quantity: Optional[str] = Field(
         default="1",
         description="the number of shoes ordered. assume 1 unless otherwise specified",
     )
-    style: str | None = Field(
+    style: Optional[str] = Field(
         description="the style of the shoe",
     )
 
 
 class Order(ExtractorSchema):
-    person: Person | None = Field(description="the person ordering the shoes")
-    item: OrderItem | None = Field(description="the item being ordered")
-    shipping_address: Address | None = Field(
+    person: Optional[Person] = Field(description="the person ordering the shoes")
+    item: Optional[OrderItem] = Field(description="the item being ordered")
+    shipping_address: Optional[Address] = Field(
         description="the person's shipping address"
     )
 
@@ -128,7 +134,6 @@ Human's response: {input}
 
 if __name__ == "__main__":
     main()
-
 
 # TODOs:
 # - deal with conflicts when same data is extracted from multiple messages
