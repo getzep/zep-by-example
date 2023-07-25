@@ -13,6 +13,9 @@ from pydantic import BaseModel
 class ExtractorSchema(BaseModel, ABC):
     """Base class for extractor models."""
 
+    class Config:
+        exclude_unset = True
+
     def recursive_update(self, model_new: ExtractorSchema | None) -> None:
         """Recursively update model values."""
         if model_new is None:
@@ -43,7 +46,7 @@ class SchemaExtractorMemory(ConversationBufferMemory):
         self.model = model_schema
         self.llm = llm
         self.chain = create_extraction_chain_pydantic(
-            pydantic_schema=model_schema, llm=llm
+            pydantic_schema=type(model_schema), llm=llm
         )
 
     def _merge_model_values(
