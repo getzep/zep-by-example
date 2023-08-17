@@ -1,13 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "module": "ES2020",
-    "moduleResolution": "NodeNext",
+    /* Language and Environment */
+    "target": "es2022",
+    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": [
+      "ES2022"
+    ],
+    /* Modules */
+    "module": "nodenext",
+    /* Specify what module code is generated. */
+    "rootDir": "src",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true,
-    "types": ["node"],
-    "lib": ["esnext"]
+    "noImplicitAny": true,
+    "skipLibCheck": true
   }
 }
