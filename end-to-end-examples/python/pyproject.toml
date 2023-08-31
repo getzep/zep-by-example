@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-zep-python = "^1.1.1"
+zep-python = "^1.1.2"
 
 
 [build-system]
