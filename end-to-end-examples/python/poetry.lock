@@ -280,13 +280,13 @@ files = [
 
 [[package]]
 name = "zep-python"
-version = "1.1.1"
+version = "1.1.2"
 description = "Zep stores, manages, enriches, indexes, and searches long-term memory for conversational AI applications. This is the Python client for the Zep service."
 optional = false
 python-versions = ">=3.8.1,<4"
 files = [
-    {file = "zep_python-1.1.1-py3-none-any.whl", hash = "sha256:9ec368ec3d7caf4023487b5fc68a2089bddf81a102091592a3ae81910da0b16f"},
-    {file = "zep_python-1.1.1.tar.gz", hash = "sha256:16fc5ee9d2637aff0a58987c64965b18722f0df08ba47b2c937eb9961954ddf0"},
+    {file = "zep_python-1.1.2-py3-none-any.whl", hash = "sha256:8b13cc3e4cd3f55fa0c31b71e5d913513c866c5ed07019dcdcb38a1b0fe51ef7"},
+    {file = "zep_python-1.1.2.tar.gz", hash = "sha256:a6abe36587c8337d7c5963a694a2e14dd747678ec49cc8f909a7bed118d60883"},
 ]
 
 [package.dependencies]
@@ -297,4 +297,4 @@ pydantic = ">=1.10.7"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c74246eb5feb3791c4db44c47e88b7e0695019ed799a057073eb262293c509b2"
+content-hash = "86d97e007b878072cf7f287820d38fe99ba263187143c3c8ea15da9edbb94653"
