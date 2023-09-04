@@ -44,7 +44,7 @@ const ZEP_COLLECTION_CONFIG: IZepConfig = {
   apiUrl: ZEP_API_URL,
   apiKey: ZEP_API_KEY,
   collectionName: ZEP_COLLECTION_NAME,
-  embeddingDimensions: 768, // Set to the width of the model configured in Zep. Use 1536 for OpenAI
+  embeddingDimensions: 1536, // Set to the width of the model configured in Zep. Use 1536 for OpenAI
   isAutoEmbedded: true,
 };
 
