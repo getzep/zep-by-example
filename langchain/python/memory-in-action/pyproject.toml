@@ -15,7 +15,7 @@ zep-python = "^0.33"
 
 
 [tool.poetry.group.dev.dependencies]
-black = {extras = ["jupyter"], version = "^23.3.0"}
+black = {extras = ["jupyter"], version = "^24.3.0"}
 promptlayer = "^0.1.90"
 
 [build-system]
