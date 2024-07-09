@@ -1,0 +1,6 @@
+zep-cloud
+pydantic>=2
+python-dotenv
+notebook
+rich
+ipykernel
