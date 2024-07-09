@@ -1,0 +1,7 @@
+zep-python
+langchain
+openai
+python-dotenv
+wikipedia
+docarray
+tiktoken

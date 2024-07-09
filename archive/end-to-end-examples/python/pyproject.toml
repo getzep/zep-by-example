@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "zep-end-to-end"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Chalef <131175+danielchalef@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+zep-python = "^1.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
