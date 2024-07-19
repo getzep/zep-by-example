@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "simple-with-memory-chainlit"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Chalef <131175+danielchalef@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+chainlit = "^1.1.306"
+openai = "^1.35.13"
+zep-cloud = "^1.0.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
